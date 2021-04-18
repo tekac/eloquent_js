@@ -1,10 +1,17 @@
-// Write a function min that returns 2 arguments that returns their minimum
+const bills = [22,295,176,440,37,105,10,1100,86,52];
+const tips = [];
+const totals = [];
 
-const min = (a,b) => {
-  let num = a < b ? a : b;
-  return num
+const calcTip = function (bill) {
+    let tip = (bill >= 50 && bill <= 300 ? bill * .15 : bill * .20);
+    return tip;
 }
 
-console.log(min(2,4));
-console.log(min(4,2));
-console.log(min(2,4) + 100);
+for (i = 0; i < bills.length; i++) {
+    const total = bills[i] + calcTip(bills[i]);
+    tips.push(calcTip(bills[i]));
+    totals.push(total);
+}
+
+console.log(tips);
+console.log(totals);
